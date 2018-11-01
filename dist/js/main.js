@@ -42,5 +42,23 @@ const words = [
 
   //Initialize Game
   function init() {
-    console.log("init");
+    
+    //load word from array
+    showWord(words);
+
+    //call countDown every second
+    setInterval(countDown,1000);
   }
+
+  // pick and show random word
+  function showWord(words){
+    //generate random array index
+    const randIndex = Math.floor(Math.random() * words.length);
+
+    // output a random word
+    currentWord.innerHTML = words[randIndex];
+
+
+  }
+
+  //countDown
