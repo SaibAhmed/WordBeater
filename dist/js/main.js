@@ -48,6 +48,9 @@ const words = [
 
     //call countDown every second
     setInterval(countDown,1000);
+
+    //check game status
+    setInterval(checkStatus , 50);
   }
 
   // pick and show random word
@@ -61,4 +64,26 @@ const words = [
 
   }
 
-  //countDown
+  //countDown timer
+  function countDown(){
+    //makesure time is not runout
+    if(time > 0){
+      //Decrement time
+      time--;
+      
+    }else if(time === 0){
+      //game is over
+      isPlaying = false;
+    }
+
+    //show time 
+    timeDisplay.innerHTML = time;
+
+  }
+
+  //check game status
+  function checkStatus(){
+    if(!isPlaying && time === 0){
+      message.innerHTML = "Game Over!"
+    }
+  }
